@@ -4,7 +4,6 @@ function renderHonestBadge() {
 
   if (!slug) return;
 
-  // ✅ KORREKTE API-URL mit /1.1/wf/
   fetch(`https://thehonestexperience.com/api/1.1/wf/badge-data?brand_slug=${slug}`)
     .then((res) => res.json())
     .then((data) => {
@@ -87,26 +86,6 @@ function renderHonestBadge() {
     });
 }
 
-// 🔁 Render sofort nach DOM-Load
-function waitForElement(selector, callback) {
-  const el = document.querySelector(selector);
-  if (el) return callback(el);
-
-  const observer = new MutationObserver(() => {
-    const elNow = document.querySelector(selector);
-    if (elNow) {
-      observer.disconnect();
-      callback(elNow);
-    }
-  });
-
-  observer.observe(document.body, {
-    childList: true,
-    subtree: true,
-  });
-}
-
-waitForElement(".the-honest-widget", () => {
+document.addEventListener("DOMContentLoaded", () => {
   renderHonestBadge();
 });
-
