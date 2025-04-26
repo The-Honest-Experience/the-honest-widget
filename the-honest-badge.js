@@ -4,7 +4,7 @@ function renderHonestBadge() {
 
   if (!slug) return;
 
-  fetch(`https://thehonestexperience.com/api/1.1/wf/badge-data?brand_slug=${slug}`)
+fetch(`https://thehonestexperience.com/version-test/api/1.1/wf/badge-data?brand_slug=${slug}`)
     .then((res) => res.json())
     .then((data) => {
       if (!data?.response) return;
