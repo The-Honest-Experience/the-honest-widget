@@ -4,13 +4,11 @@ function renderHonestBadge() {
 
   if (!slug) return;
 
-  const apiUrl = `https://thehonestexperience.com/version-test/api/1.1/wf/badge-data?brand_slug=${slug}`;
-
-  fetch(apiUrl)
+  // ✅ KORREKTE API-URL mit /1.1/wf/
+  fetch(`https://thehonestexperience.com/api/1.1/wf/badge-data?brand_slug=${slug}`)
     .then((res) => res.json())
     .then((data) => {
       if (!data?.response) return;
-
       const { score, total_reviews } = data.response;
 
       badge.innerHTML = `
@@ -86,12 +84,10 @@ function renderHonestBadge() {
           </div>
         </div>
       `;
-    })
-    .catch((err) => {
-      console.error("Badge fetch failed:", err);
     });
 }
 
+// 🔁 Render sofort nach DOM-Load
 document.addEventListener("DOMContentLoaded", () => {
   renderHonestBadge();
 });
