@@ -1,20 +1,55 @@
-(function () {
+(async () => {
   const scriptTag = document.currentScript;
-  const brand = scriptTag.getAttribute('data-brand');
+  const brandSlug = scriptTag.getAttribute("data-brand");
 
-  fetch(`https://thehonestexperience.com/api/badge-data?brand_slug=${brand}`)
-    .then(res => res.json())
-    .then(data => {
-      const wrapper = document.createElement('div');
-      wrapper.innerHTML = `
-        <div style="border:1px solid #FF403F;padding:12px;border-radius:10px;max-width:300px;font-family:Poppins,sans-serif;color:#2C2C2C;background:#fff;">
-          <div style="font-size:20px;font-weight:bold;color:#FF403F;">${data.score} ★</div>
-          <div style="font-size:14px;">Based on ${data.total_reviews} verified reviews</div>
-          <a href="https://thehonestexperience.com/brand/${data.slug}" target="_blank" style="display:inline-block;margin-top:6px;font-size:13px;color:#FF403F;text-decoration:none;">
-            See all reviews →
-          </a>
-        </div>
+  const badge = document.createElement("div");
+  badge.style.fontFamily = "system-ui, sans-serif";
+  badge.style.border = "1px solid #ccc";
+  badge.style.borderRadius = "12px";
+  badge.style.padding = "12px 16px";
+  badge.style.display = "inline-flex";
+  badge.style.alignItems = "center";
+  badge.style.gap = "12px";
+  badge.style.background = "#fff";
+  badge.style.boxShadow = "0 2px 8px rgba(0,0,0,0.06)";
+  badge.style.fontSize = "14px";
+  badge.style.lineHeight = "1.4";
+
+  const logo = document.createElement("img");
+  logo.src = "https://thehonestexperience.com/icon-192.png";
+  logo.alt = "The Honest Experience";
+  logo.style.height = "32px";
+  logo.style.width = "32px";
+  logo.style.borderRadius = "6px";
+
+  const text = document.createElement("div");
+  text.innerText = "Loading badge...";
+
+  badge.appendChild(logo);
+  badge.appendChild(text);
+  scriptTag.parentNode.insertBefore(badge, scriptTag.nextSibling);
+
+  try {
+    const res = await fetch(
+      `https://thehonestexperience.com/api/1.1/wf/badge-data?brand_slug=${brandSlug}`
+    );
+    const data = await res.json();
+    if (data?.response?.score) {
+      const score = data.response.score.toFixed(1);
+      const reviews = data.response.total_reviews;
+      const name = data.response.brand_name;
+      const slug = data.response.slug;
+
+      text.innerHTML = `
+        <strong style="font-weight:600;">${name}</strong><br>
+        <span style="color:#444;">Score: <strong>${score}</strong> | ${reviews} reviews</span><br>
+        <a href="https://thehonestexperience.com/see-reviews/${slug}" target="_blank" style="color:#0066ff; text-decoration:none; font-size:12px;">See all reviews →</a>
       `;
-      scriptTag.insertAdjacentElement('afterend', wrapper);
-    });
+    } else {
+      text.innerText = "No reviews found.";
+    }
+  } catch (err) {
+    text.innerText = "Error loading badge.";
+    console.error("Badge error", err);
+  }
 })();
