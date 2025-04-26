@@ -4,11 +4,13 @@ function renderHonestBadge() {
 
   if (!slug) return;
 
-  // Richtiger API-Pfad mit version-test
-  fetch(`https://thehonestexperience.com/version-test/api/1.1/wf/badge-data?brand_slug=${slug}`)
+  const apiUrl = `https://thehonestexperience.com/version-test/api/1.1/wf/badge-data?brand_slug=${slug}`;
+
+  fetch(apiUrl)
     .then((res) => res.json())
     .then((data) => {
       if (!data?.response) return;
+
       const { score, total_reviews } = data.response;
 
       badge.innerHTML = `
@@ -84,10 +86,12 @@ function renderHonestBadge() {
           </div>
         </div>
       `;
+    })
+    .catch((err) => {
+      console.error("Badge fetch failed:", err);
     });
 }
 
-// Stelle sicher, dass der Code erst ausgeführt wird, wenn DOM geladen ist
 document.addEventListener("DOMContentLoaded", () => {
   renderHonestBadge();
 });
