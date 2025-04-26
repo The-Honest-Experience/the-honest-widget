@@ -5,7 +5,7 @@ function renderHonestBadge() {
   if (!slug) return;
 
   // ✅ KORREKTE API-URL mit /1.1/wf/
-  fetch(`https://thehonestexperience.com/api/1.1/wf/badge-data?brand_slug=${slug}`)
+  fetch(`https://thehonestexperience.com/api/1.1/wf/badge-data?brand_slug=${nike}`)
     .then((res) => res.json())
     .then((data) => {
       if (!data?.response) return;
