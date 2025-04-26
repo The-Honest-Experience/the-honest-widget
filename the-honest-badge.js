@@ -4,7 +4,8 @@ function renderHonestBadge() {
 
   if (!slug) return;
 
-fetch(`https://thehonestexperience.com/version-test/api/1.1/wf/badge-data?brand_slug=${slug}`)
+  // Richtiger API-Pfad mit version-test
+  fetch(`https://thehonestexperience.com/version-test/api/1.1/wf/badge-data?brand_slug=${slug}`)
     .then((res) => res.json())
     .then((data) => {
       if (!data?.response) return;
@@ -86,7 +87,7 @@ fetch(`https://thehonestexperience.com/version-test/api/1.1/wf/badge-data?brand_
     });
 }
 
-// Widget sofort rendern, wenn DOM fertig geladen ist
+// Stelle sicher, dass der Code erst ausgeführt wird, wenn DOM geladen ist
 document.addEventListener("DOMContentLoaded", () => {
   renderHonestBadge();
 });
