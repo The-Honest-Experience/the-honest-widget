@@ -1,3 +1,12 @@
+document.addEventListener("DOMContentLoaded", () => {
+  const scriptBase = document.currentScript?.src.split("/").slice(0, -1).join("/") + "/";
+
+  const cssLink = document.createElement("link");
+  cssLink.rel = "stylesheet";
+  cssLink.href = scriptBase + "the-honest-badge.css"; // Wichtig: CSS liegt im selben Ordner wie embed.js
+  document.head.appendChild(cssLink);
+
+
 (function () {
   "use strict";
 
