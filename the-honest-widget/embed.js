@@ -53,7 +53,8 @@
     function loadWidget(element) {
         var widgetId = element.getAttribute("data-widget-id");
         if (!widgetId) return;
-        var apiUrl = "https://thehonestexperience.com/api/1.1/wf/badge-data?widget_uuid=" + encodeURIComponent(widgetId);
+        var apiUrl = "https://thehonestexperience.com/api/1.1/wf/badge-data?brand_slug=" + encodeURIComponent(widgetId);
+
         
         // Erfolgs-Callback für beide Methoden (Fetch oder XHR)
         function handleDataResponse(json) {
