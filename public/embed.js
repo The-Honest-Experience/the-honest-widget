@@ -1,77 +1,39 @@
 document.addEventListener("DOMContentLoaded", () => {
+  // 1. Basis-URL des Skripts ermitteln (für relativen CSS-Pfad)
   const scriptBase = document.currentScript?.src.split("/").slice(0, -1).join("/") + "/";
 
-  const cssLink = document.createElement("link");
-  cssLink.rel = "stylesheet";
-  cssLink.href = scriptBase + "the-honest-badge.css"; // Wichtig: CSS liegt im selben Ordner wie embed.js
-  document.head.appendChild(cssLink);
-
-
-(function () {
-  "use strict";
-
-  // Alle Widget-Container mit data-brand Attribut finden
-  const widgetElements = document.querySelectorAll("[data-brand]");
-  if (!widgetElements.length) return;
-
-  // Aktuelles Skript finden, um Basis-Pfad zu ermitteln
-  const currentScript = document.currentScript || (function () {
-    const scripts = document.getElementsByTagName("script");
-    return scripts[scripts.length - 1];
-  })();
-
-  const scriptSrc = currentScript.src || "";
-  const scriptBase = scriptSrc.substring(0, scriptSrc.lastIndexOf("/") + 1);
-
-  // CSS-Datei dynamisch laden
+  // 2. CSS automatisch einfügen
   const cssLink = document.createElement("link");
   cssLink.rel = "stylesheet";
   cssLink.href = scriptBase + "the-honest-badge.css";
   document.head.appendChild(cssLink);
 
-  // Widget rendern
-  function renderWidget(element, data) {
-    const { score, total_reviews } = data;
-    if (typeof score !== "number" || typeof total_reviews !== "number") return;
-
-    const scoreFormatted = (Math.round(score * 10) / 10).toFixed(score % 1 === 0 ? 0 : 1);
-
-    element.innerHTML = `
-      <div class="the-honest-badge">
-        <span class="the-honest-score">${scoreFormatted}</span>
-        <span class="the-honest-max">/5</span>
-        <span class="the-honest-reviews">(${total_reviews} verified reviews)</span>
-      </div>
-    `;
-  }
-
-  // API Call + Render
-  function loadWidget(element) {
-    const uuid = element.getAttribute("data-brand");
+  // 3. Alle Container mit data-brand verarbeiten
+  document.querySelectorAll('[data-brand]').forEach(badge => {
+    const uuid = badge.dataset.brand;
     if (!uuid) return;
 
-    const apiUrl = "https://thehonestexperience.com/api/1.1/wf/badge-data?widget_uuid=" + encodeURIComponent(uuid);
+    fetch(`https://thehonestexperience.com/api/1.1/wf/badge-data?widget_uuid=${uuid}`)
+      .then(res => res.json())
+      .then(data => {
+        if (!data?.response) return;
+        const { score, total_reviews } = data.response;
 
-    fetch(apiUrl)
-      .then((res) => res.json())
-      .then((data) => {
-        if (!data || data.status !== "success" || !data.response) return;
-        renderWidget(element, data.response);
-      })
-      .catch(() => {
-        // stillschweigend ignorieren
+        badge.innerHTML = `
+          <div class="the-widget-container">
+            <div class="the-details">
+              <div class="the-score">
+                ${score.toFixed(1)}
+                <img src="https://74b0fc046962dee287537fffacbddacd.cdn.bubble.io/f1744554362576x344039617658736400/Total-score-the-honest-experience.png" class="the-star" alt="Score Icon">
+              </div>
+              <div class="the-reviews">${total_reviews} verified reviews</div>
+            </div>
+            <div class="the-divider"></div>
+            <div class="the-logo">
+              <img src="https://74b0fc046962dee287537fffacbddacd.cdn.bubble.io/f1745736971199x969105184116363800/Logo_Name_TheHonestExperience_Red_Red.png" class="logo-image" alt="The Honest Experience Logo">
+            </div>
+          </div>
+        `;
       });
-  }
-
-  // Alle gefundenen Widgets initialisieren
-  function initWidgets() {
-    widgetElements.forEach(loadWidget);
-  }
-
-  // DOM-Ready abwarten
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", initWidgets);
-  } else {
-    initWidgets();
-  }
-})();
+  });
+});
