@@ -1,115 +1,82 @@
-// embed.js - The Honest Widget
-// Dieses Skript fügt ein Bewertungs-Badge von The Honest Experience in Seiten ein.
-// Voraussetzung: Im HTML muss ein Element mit dem Attribut data-widget-id vorhanden sein,
-// welches die Widget-UUID enthält. 
-// Einbindung: <script src="https://thehonestexperience.com/embed.js" defer></script>
-// Das Skript lädt automatisch die benötigten Daten und Styles und zeigt das Widget an.
+function renderHonestBadge() {
+  const badge = document.querySelector(".the-honest-widget");
+  const uuid = badge?.dataset?.brand;
+  if (!uuid) return;
 
-(function() {
-    "use strict";
-    
-    // Alle Widget-Container auf der Seite suchen (Elemente mit data-widget-id)
-    var widgetElements = document.querySelectorAll("[data-widget-id]");
-    if (!widgetElements.length) return; // Abbrechen, falls kein Widget-Element vorhanden
-    
-    // CSS für das Widget dynamisch laden
-    var currentScript = document.currentScript || (function() {
-        // Fallback, falls document.currentScript nicht unterstützt wird
-        var scripts = document.getElementsByTagName("script");
-        return scripts[scripts.length - 1];
-    })();
-    // Basis-URL des aktuellen Skripts ermitteln, um darauf basierend die CSS-Datei zu laden
-    var scriptSrc = currentScript.src || "";
-    var scriptBase = scriptSrc.substring(0, scriptSrc.lastIndexOf("/") + 1);
-    var cssLink = document.createElement("link");
-    cssLink.rel = "stylesheet";
-    cssLink.href = scriptBase + "the-honest-badge.css";  // Pfad zur externen CSS-Datei
-    // CSS-Link in den Dokument-Head einfügen, damit Styles angewendet werden
-    document.head.appendChild(cssLink);
-    
-    // Hilfsfunktion: Rendert das Widget-HTML in ein gegebenes Element
-    function renderWidget(element, data) {
-        // Erwartet Daten mit Feldern "score" (Zahl) und "total_reviews" (Anzahl)
-        var score = data.score;
-        var totalReviews = data.total_reviews;
-        if (typeof score !== "number" || typeof totalReviews !== "number") {
-            return; // Daten ungültig – breche ab, Widget bleibt unsichtbar
-        }
-        // Score auf eine Nachkommastelle formatieren (z.B. 4.7 statt 4.666)
-        var scoreOneDecimal = Math.round(score * 10) / 10;
-        // Falls ganze Zahl, ohne Nachkommastelle anzeigen, sonst mit einer Stelle
-        var scoreText = (scoreOneDecimal % 1 === 0) ? scoreOneDecimal.toFixed(0) : scoreOneDecimal.toFixed(1);
-        // HTML für das Badge zusammenstellen (mit entsprechenden CSS-Klassen)
-        element.innerHTML = 
-            '<div class="the-honest-badge">' +
-                '<span class="the-honest-score">' + scoreText + '</span>' +
-                '<span class="the-honest-max">/5</span>' +
-                '<span class="the-honest-reviews">(' + totalReviews + ' Bewertungen)</span>' +
-            '</div>';
-        // Hinweis: Die CSS-Klassen werden in der geladenen CSS-Datei gestaltet.
-    }
-    
-    // Hilfsfunktion: Holt die Daten vom API-Endpoint und rendert das Widget
-    function loadWidget(element) {
-        var widgetId = element.getAttribute("data-widget-id");
-        if (!widgetId) return;
-        var apiUrl = "https://thehonestexperience.com/api/1.1/wf/badge-data?widget_uuid=" + encodeURIComponent(widgetId);
+  fetch(`https://thehonestexperience.com/api/1.1/wf/badge-data?widget_uuid=${uuid}`)
+    .then(res => res.json())
+    .then(data => {
+      if (!data?.response) return;
+      const { score, total_reviews } = data.response;
 
-        
-        // Erfolgs-Callback für beide Methoden (Fetch oder XHR)
-        function handleDataResponse(json) {
-            if (!json || json.status !== "success" || !json.response) return; // ungültige Antwort
-            renderWidget(element, json.response);
-        }
-        // Fehler-Callback: Bei Fehler nichts tun (Widget bleibt leer/unsichtbar)
-        function handleDataError() {
-            // Fehler werden stillschweigend ignoriert, um das Einbinden der Seite nicht zu stören.
-            // Optional könnte man element.style.display = "none"; setzen, um den Platzhalter zu entfernen.
-        }
-        
-        // Datendownload via Fetch API (moderne Browser)
-        if (window.fetch) {
-            fetch(apiUrl)
-                .then(function(response) {
-                    if (!response.ok) throw new Error("Netzwerk-Antwort war nicht OK");
-                    return response.json();
-                })
-                .then(handleDataResponse)
-                .catch(handleDataError);
-        } else {
-            // Fallback: XMLHttpRequest für ältere Browser ohne fetch
-            var xhr = new XMLHttpRequest();
-            xhr.onreadystatechange = function() {
-                if (xhr.readyState === 4) {  // Anfrage abgeschlossen
-                    if (xhr.status === 200) {
-                        try {
-                            var data = JSON.parse(xhr.responseText);
-                            handleDataResponse(data);
-                        } catch (e) {
-                            handleDataError();
-                        }
-                    } else {
-                        handleDataError();
-                    }
-                }
-            };
-            xhr.open("GET", apiUrl, true);
-            xhr.send();
-        }
-    }
-    
-    // Hauptfunktion: lädt Widgets für alle gefundenen Elemente
-    function initWidgets() {
-        for (var i = 0; i < widgetElements.length; i++) {
-            loadWidget(widgetElements[i]);
-        }
-    }
-    
-    // Falls das Skript vor dem DOM-Ende ausgeführt wird, sicherstellen, dass DOM geladen ist.
-    if (document.readyState === "loading") {
-        document.addEventListener("DOMContentLoaded", initWidgets);
-    } else {
-        // Wenn DOM bereits bereit (bei Nutzung von defer/Script am Ende), direkt ausführen
-        initWidgets();
-    }
-})();
+      badge.innerHTML = `
+        <style>
+          .the-widget-container {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            display: flex;
+            align-items: center;
+            border: 2px solid #eee;
+            border-radius: 12px;
+            padding: 16px;
+            max-width: 460px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+            background-color: #fff;
+          }
+          .the-score {
+            font-size: 48px;
+            font-weight: 700;
+            line-height: 1;
+            margin-right: 12px;
+            color: #111;
+            display: flex;
+            align-items: center;
+          }
+          .the-star {
+            height: 32px;
+            width: 32px;
+            margin-left: 6px;
+          }
+          .the-details {
+            display: flex;
+            flex-direction: column;
+            margin-right: 24px;
+          }
+          .the-reviews {
+            font-size: 16px;
+            color: #333;
+            margin-top: 4px;
+          }
+          .the-divider {
+            height: 60px;
+            width: 1px;
+            background-color: #ddd;
+            margin: 0 20px;
+          }
+          .the-logo {
+            display: flex;
+            align-items: center;
+          }
+          .logo-image {
+            height: 40px;
+            object-fit: contain;
+          }
+        </style>
+
+        <div class="the-widget-container">
+          <div class="the-details">
+            <div class="the-score">
+              ${score.toFixed(1)}
+              <img src="https://74b0fc046962dee287537fffacbddacd.cdn.bubble.io/f1744554362576x344039617658736400/Total-score-the-honest-experience.png" class="the-star" alt="Score Icon">
+            </div>
+            <div class="the-reviews">${total_reviews} verified reviews</div>
+          </div>
+          <div class="the-divider"></div>
+          <div class="the-logo">
+            <img src="https://74b0fc046962dee287537fffacbddacd.cdn.bubble.io/f1745736971199x969105184116363800/Logo_Name_TheHonestExperience_Red_Red.png" class="logo-image" alt="The Honest Experience Logo">
+          </div>
+        </div>
+      `;
+    });
+}
+
+document.addEventListener("DOMContentLoaded", renderHonestBadge);
