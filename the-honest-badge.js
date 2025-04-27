@@ -1,3 +1,10 @@
+// 1. Load external stylesheet
+const link = document.createElement("link");
+link.rel = "stylesheet";
+link.href = "https://the-honest-widget.pages.dev/the-honest-badge.css";
+document.head.appendChild(link);
+
+// 2. Render badge
 function renderHonestBadge() {
   const badge = document.querySelector(".the-honest-widget");
   const uuid = badge?.dataset?.brand;
@@ -13,15 +20,12 @@ function renderHonestBadge() {
         <div class="the-widget-container">
           <div class="the-details">
             <div class="the-score">
-              <img class="score-icon" src="https://74b0fc046962dee287537fffacbddacd.cdn.bubble.io/f1744554362576x344039617658736400/Total-score-the-honest-experience.png" alt="Score Icon" />
-              ${score.toFixed(1)}
+              ${score.toFixed(1)}<span class="the-star"></span>
             </div>
             <div class="the-reviews">${total_reviews} verified reviews</div>
           </div>
           <div class="the-divider"></div>
-          <div class="the-logo">
-            <img class="honest-logo" src="https://74b0fc046962dee287537fffacbddacd.cdn.bubble.io/f1745736971199x969105184116363800/Logo_Name_TheHonestExperience_Red_Red.png" alt="The Honest Experience Logo" />
-          </div>
+          <div class="the-logo"></div>
         </div>
       `;
     });
