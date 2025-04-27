@@ -1,56 +1,49 @@
-.the-widget-container {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: flex;
+.the-honest-badge {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  display: inline-flex;
   align-items: center;
-  border: 2px solid #eee;
-  border-radius: 12px;
-  padding: 16px;
-  max-width: 460px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+  gap: 8px;
+  padding: 10px 16px;
   background-color: #fff;
-}
-
-.the-score {
-  font-size: 48px;
-  font-weight: 700;
-  line-height: 1;
-  margin-right: 12px;
-  color: #111;
-  display: flex;
-  align-items: center;
-}
-
-.score-icon {
-  width: 28px;
-  height: 28px;
-  margin-right: 6px;
-  vertical-align: middle;
-}
-
-.the-details {
-  display: flex;
-  flex-direction: column;
-  margin-right: 24px;
-}
-
-.the-reviews {
+  border: 1.5px solid #eee;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  max-width: 480px;
   font-size: 16px;
-  color: #333;
-  margin-top: 4px;
+  color: #111;
 }
 
-.the-divider {
-  height: 60px;
-  width: 1px;
-  background-color: #ddd;
-  margin: 0 20px;
+.the-honest-score {
+  font-size: 32px;
+  font-weight: 700;
+  color: #e63946;
+  line-height: 1;
 }
 
-.the-logo {
-  display: flex;
-  align-items: center;
+.the-honest-max {
+  font-size: 20px;
+  color: #999;
 }
 
-.honest-logo {
-  height: 42px;
+.the-honest-reviews {
+  font-size: 14px;
+  color: #555;
+}
+
+@media (max-width: 480px) {
+  .the-honest-badge {
+    font-size: 14px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  .the-honest-score {
+    font-size: 28px;
+  }
+
+  .the-honest-max,
+  .the-honest-reviews {
+    font-size: 13px;
+  }
 }
