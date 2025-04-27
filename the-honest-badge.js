@@ -1,10 +1,10 @@
 function renderHonestBadge() {
   const badge = document.querySelector(".the-honest-widget");
-  const widget_uuid = badge?.dataset?.brand;
+  const uuid = badge?.dataset?.brand;
 
-  if (!widget_uuid) return;
+  if (!uuid) return;
 
-  fetch(`https://thehonestexperience.com/api/1.1/wf/badge-data?brand_slug=${widget_uuid}`)
+  fetch(`https://thehonestexperience.com/api/1.1/wf/badge-data?widget_uuid=${uuid}`)
     .then((res) => res.json())
     .then((data) => {
       if (!data?.response) return;
