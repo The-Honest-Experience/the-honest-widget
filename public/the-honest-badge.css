@@ -15,42 +15,44 @@
 
 .score-icon {
   height: 36px;
+  width: auto;
+}
+
+.honest-logo {
+  height: 40px;
+  width: auto;
+  margin-left: auto;
+}
+
+.the-honest-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
 }
 
 .the-honest-score {
-  font-size: 32px;
+  font-size: 28px;
   font-weight: 700;
   color: #111;
-  margin-left: 4px;
 }
 
 .the-honest-reviews {
   font-size: 14px;
   color: #555;
-  margin-left: 8px;
-}
-
-.honest-logo {
-  height: 40px;
-  margin-left: auto;
 }
 
 @media (max-width: 480px) {
   .the-honest-badge {
     flex-direction: column;
     align-items: flex-start;
-    gap: 6px;
+  }
+
+  .honest-logo,
+  .score-icon {
+    height: 32px;
   }
 
   .the-honest-score {
-    font-size: 28px;
-  }
-
-  .the-honest-reviews {
-    font-size: 13px;
-  }
-
-  .score-icon, .honest-logo {
-    height: 32px;
+    font-size: 24px;
   }
 }
