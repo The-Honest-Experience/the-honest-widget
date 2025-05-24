@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // 1. Basis-URL des Skripts ermitteln (für relativen CSS-Pfad)
   const scriptBase = document.currentScript?.src.split("/").slice(0, -1).join("/") + "/";
 
+  
   // 2. CSS automatisch einfügen
   const cssLink = document.createElement("link");
   cssLink.rel = "stylesheet";
