@@ -23,13 +23,24 @@
   color: #555;
 }
 
-.score-icon {
-  width: 30px;
-  height: 30px;
-  object-fit: contain;
-  flex-shrink: 0;
-  display: block;
+.the-score-block {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
 }
+
+.the-score-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.score-icon {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
 
 .honest-logo {
   width: auto;
