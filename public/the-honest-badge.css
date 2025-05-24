@@ -2,13 +2,13 @@
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 12px;
   padding: 10px 16px;
   background-color: #fff;
   border: 1.5px solid #eee;
   border-radius: 12px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
-  max-width: 480px;
+  max-width: 420px;
   font-size: 16px;
   color: #111;
 }
@@ -16,18 +16,21 @@
 .the-honest-score {
   font-size: 32px;
   font-weight: 700;
-  color: #e63946;
+  color: #000;
   line-height: 1;
-}
-
-.the-honest-max {
-  font-size: 20px;
-  color: #999;
 }
 
 .the-honest-reviews {
   font-size: 14px;
   color: #555;
+}
+
+.score-icon {
+  height: 36px;
+}
+
+.honest-logo {
+  height: 48px;
 }
 
 @media (max-width: 480px) {
@@ -42,8 +45,11 @@
     font-size: 28px;
   }
 
-  .the-honest-max,
   .the-honest-reviews {
     font-size: 13px;
+  }
+
+  .score-icon, .honest-logo {
+    height: 32px;
   }
 }
