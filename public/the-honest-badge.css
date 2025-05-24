@@ -3,42 +3,43 @@
   display: inline-flex;
   align-items: center;
   gap: 12px;
-  padding: 10px 16px;
+  padding: 12px 16px;
   background-color: #fff;
-  border: 1.5px solid #eee;
+  border: 1px solid #e5e5e5;
   border-radius: 12px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
-  max-width: 420px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.06);
   font-size: 16px;
   color: #111;
-}
-
-.the-honest-score {
-  font-size: 32px;
-  font-weight: 700;
-  color: #000;
-  line-height: 1;
-}
-
-.the-honest-reviews {
-  font-size: 14px;
-  color: #555;
+  max-width: 480px;
 }
 
 .score-icon {
   height: 36px;
 }
 
+.the-honest-score {
+  font-size: 32px;
+  font-weight: 700;
+  color: #111;
+  margin-left: 4px;
+}
+
+.the-honest-reviews {
+  font-size: 14px;
+  color: #555;
+  margin-left: 8px;
+}
+
 .honest-logo {
-  height: 48px;
+  height: 40px;
+  margin-left: auto;
 }
 
 @media (max-width: 480px) {
   .the-honest-badge {
-    font-size: 14px;
     flex-direction: column;
     align-items: flex-start;
-    gap: 4px;
+    gap: 6px;
   }
 
   .the-honest-score {
