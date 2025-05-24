@@ -1,13 +1,11 @@
 document.addEventListener("DOMContentLoaded", () => {
   const scriptBase = document.currentScript?.src.split("/").slice(0, -1).join("/") + "/";
 
-  // CSS anhängen
   const cssLink = document.createElement("link");
   cssLink.rel = "stylesheet";
   cssLink.href = scriptBase + "the-honest-badge.css";
   document.head.appendChild(cssLink);
 
-  // Widget aufbauen
   document.querySelectorAll('[data-brand]').forEach(badge => {
     const uuid = badge.dataset.brand;
     if (!uuid) return;
