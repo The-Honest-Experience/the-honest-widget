@@ -1,31 +1,20 @@
 .the-honest-badge {
   display: inline-flex;
   align-items: center;
-  background-color: #fff;
-  border: 1px solid #e5e5e5;
-  border-radius: 12px;
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.06);
-  padding: 10px 14px;
   gap: 12px;
+  padding: 10px 14px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-}
-
-.score-icon {
-  height: 26px;
-  width: 26px;
-  flex-shrink: 0;
-}
-
-.the-honest-text {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  line-height: 1.2;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
+  max-width: 300px;
+  font-size: 14px;
 }
 
 .the-honest-score {
   font-size: 22px;
-  font-weight: bold;
+  font-weight: 700;
   color: #111;
 }
 
@@ -34,9 +23,33 @@
   color: #555;
 }
 
+.score-icon {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+}
+
 .honest-logo {
-  height: 36px;
-  width: auto;
+  width: 36px;
+  height: auto;
   margin-left: auto;
   flex-shrink: 0;
+}
+
+.the-details {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+@media (max-width: 400px) {
+  .the-honest-badge {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .honest-logo {
+    margin-left: 0;
+  }
 }
