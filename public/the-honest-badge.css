@@ -26,7 +26,7 @@
 .score-icon {
   width: 12px;
   height: 24px;
-  flex-shrink: 1;
+  object-fit: contain; /* oder: cover */
 }
 
 .honest-logo {
