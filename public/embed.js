@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const uuid = badge?.dataset?.brand;
   if (!uuid) return;
 
+  
   fetch(`https://thehonestexperience.com/api/1.1/wf/badge-data?widget_uuid=${uuid}`)
     .then(res => res.json())
     .then(data => {
