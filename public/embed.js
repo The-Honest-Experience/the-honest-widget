@@ -1,25 +1,40 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const badge = document.querySelector(".the-honest-widget");
-  const uuid = badge?.dataset?.brand;
-  if (!uuid) return;
+  // 1. Basis-URL des Skripts ermitteln (für relativen CSS-Pfad)
+  const scriptBase = document.currentScript?.src.split("/").slice(0, -1).join("/") + "/";
 
   
-  fetch(`https://thehonestexperience.com/api/1.1/wf/badge-data?widget_uuid=${uuid}`)
-    .then(res => res.json())
-    .then(data => {
-      if (!data?.response) return;
-      const { score, total_reviews } = data.response;
+  // 2. CSS automatisch einfügen
+  const cssLink = document.createElement("link");
+  cssLink.rel = "stylesheet";
+  cssLink.href = scriptBase + "the-honest-badge.css";
+  document.head.appendChild(cssLink);
 
-      badge.innerHTML = `
-        <div style="font-family: sans-serif; border: 1px solid #eee; border-radius: 8px; padding: 16px; display: flex; gap: 12px; align-items: center;">
-          <div style="font-size: 24px; font-weight: bold;">⭐ ${score.toFixed(1)}</div>
-          <div>${total_reviews} verified review${total_reviews !== 1 ? 's' : ''}</div>
-          <div style="margin-left: auto; background: #f44336; color: white; padding: 4px 8px; border-radius: 4px;">THE</div>
-        </div>
-      `;
-    })
-    .catch(err => {
-      console.error("Badge API error", err);
-      badge.innerText = "Error loading badge";
-    });
-});
+  // 3. Alle Container mit data-brand verarbeiten
+  document.querySelectorAll('[data-brand]').forEach(badge => {
+    const uuid = badge.dataset.brand;
+    if (!uuid) return;
+
+    fetch(`https://thehonestexperience.com/api/1.1/wf/badge-data?widget_uuid=${uuid}`)
+      .then(res => res.json())
+      .then(data => {
+        if (!data?.response) return;
+        const { score, total_reviews } = data.response;
+
+       badge.innerHTML = `
+  <div class="the-widget-container">
+    <div class="the-details">
+      <div class="the-score">
+        <img src="https://74b0fc046962dee287537fffacbddacd.cdn.bubble.io/f1744554362576x344039617658736400/Total-score-the-honest-experience.png" class="score-icon" alt="Score Icon">
+        ${score.toFixed(1)}
+      </div>
+      <div class="the-reviews">${total_reviews} verified reviews</div>
+    </div>
+    <div class="the-divider"></div>
+    <div class="the-logo">
+      <img src="https://74b0fc046962dee287537fffacbddacd.cdn.bubble.io/f1745736971199x969105184116363800/Logo_Name_TheHonestExperience_Red_Red.png" class="honest-logo" alt="The Honest Experience">
+    </div>
+  </div>
+`;
+
+
+
