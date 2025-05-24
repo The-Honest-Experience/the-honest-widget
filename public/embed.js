@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const cssLink = document.createElement("link");
   cssLink.rel = "stylesheet";
-  cssLink.href = scriptBase + "the-honest-badge.css";
+  cssLink.href = "https://the-honest-widget.pages.dev/the-honest-badge.css";
   document.head.appendChild(cssLink);
 
   document.querySelectorAll('[data-brand]').forEach(badge => {
