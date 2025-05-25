@@ -70,10 +70,10 @@
   }
 
   .the-details {
-    align-items: flex-start;
     display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 1px;
+    
   }
 }
 
