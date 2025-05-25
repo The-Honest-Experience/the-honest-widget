@@ -11,7 +11,7 @@
     // CSS einbinden
     const cssLink = document.createElement("link");
     cssLink.rel = "stylesheet";
-    cssLink.href = "https://the-honest-widget.pages.dev/the-honest-detailed-badge.css";
+    cssLink.href = "https://the-honest-widget.pages.dev/the-honest-badge-detailed.css";
     document.head.appendChild(cssLink);
 
     try {
