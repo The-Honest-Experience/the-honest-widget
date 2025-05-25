@@ -15,7 +15,7 @@
 .the-honest-score {
   font-size: 36px;
   font-weight: 700;
-  margin-left: 4px;
+  margin-left: 8px;
   color: #fff;
 }
 
@@ -46,8 +46,8 @@
 
 .honest-logo {
   width: auto;
-  height: 70px;
-  max-height: 70px;
+  height: 1000px;
+  max-height: 100px;
   margin-left: 4px;
   flex-shrink: 0;
   display: block;
