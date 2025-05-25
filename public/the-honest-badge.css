@@ -18,6 +18,26 @@
   color: #111;
 }
 
+.the-honest-badge .score-icon {
+  width: 20px !important;
+  height: 20px !important;
+  object-fit: contain !important;
+  flex-shrink: 0 !important;
+  display: block !important;
+}
+.the-honest-badge .honest-logo {
+  height: 16px !important;
+  width: auto !important;
+  margin-left: auto !important;
+  flex-shrink: 0 !important;
+  display: block !important;
+}
+
+.the-honest-badge {
+  font-size: 14px !important;
+  line-height: 1.4 !important;
+}
+
 .the-honest-reviews {
   font-size: 13px;
   color: #555;
@@ -55,6 +75,10 @@
   display: flex;
   flex-direction: column;
   gap: 2px;
+}
+
+.the-honest-badge, .the-honest-badge * {
+  box-sizing: border-box !important;
 }
 
 @media (max-width: 320px) {
