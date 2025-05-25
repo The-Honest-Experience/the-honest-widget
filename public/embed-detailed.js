@@ -15,7 +15,7 @@
     document.head.appendChild(cssLink);
 
     try {
-      const res = await fetch(`https://thehonestexperience.com/api/1.1/wf/badge-data?uuid=${uuid}`)
+      const res = await fetch(`https://thehonestexperience.com/api/1.1/wf/badge-data?uuid=${widget_uuid}`)
       const data = await res.json();
       const { overall_score, review_count, category_scores = [], category_labels = [] } = data.response;
 
