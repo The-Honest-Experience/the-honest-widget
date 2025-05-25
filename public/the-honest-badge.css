@@ -54,7 +54,7 @@
 .the-details {
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 0;
 }
 
 @media (max-width: 320px) {
