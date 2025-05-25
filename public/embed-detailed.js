@@ -5,7 +5,8 @@
     const badge = document.querySelector(".the-honest-widget");
     if (!badge) return;
 
-    const uuid = badge.dataset.brand;
+    const uuid = badge.dataset.widget_uuid;
+
     if (!uuid) return;
 
     // CSS einbinden
