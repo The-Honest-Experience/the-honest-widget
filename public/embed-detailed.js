@@ -11,11 +11,11 @@
     // CSS einbinden
     const cssLink = document.createElement("link");
     cssLink.rel = "stylesheet";
-    cssLink.href = "https://the-honest-widget.pages.dev/the-honest-badge-detailed.css";
+    cssLink.href = scriptBase + "the-honest-badge-detailed.css";
     document.head.appendChild(cssLink);
 
     try {
-      const res = await fetch(`https://thehonestexperience.com/api/1.1/wf/badge-data?uuid=${widget_uuid}`)
+      fetch(`https://thehonestexperience.com/api/1.1/wf/badge-data?widget_uuid=${uuid}`)
       const data = await res.json();
       const { overall_score, review_count, category_scores = [], category_labels = [] } = data.response;
 
