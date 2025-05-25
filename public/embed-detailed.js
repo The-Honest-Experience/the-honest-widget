@@ -1,12 +1,15 @@
 // embed-detailed.js
 
-(function () {
-  document.addEventListener("DOMContentLoaded", async () => {
-    const badge = document.querySelector(".the-honest-widget");
-    if (!badge) return;
+document.addEventListener("DOMContentLoaded", () => {
+  const scriptBase = document.currentScript?.src.split("/").slice(0, -1).join("/") + "/";
 
-    const uuid = badge.dataset.widget_uuid;
+  const cssLink = document.createElement("link");
+  cssLink.rel = "stylesheet";
+  cssLink.href = scriptBase + "the-honest-badge.css";
+  document.head.appendChild(cssLink);
 
+  document.querySelectorAll('[data-brand]').forEach(badge => {
+    const uuid = badge.dataset.brand;
     if (!uuid) return;
 
     // CSS einbinden
