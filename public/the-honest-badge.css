@@ -61,7 +61,7 @@
   .the-honest-badge {
     flex-direction: column;
     align-items: flex-start;
-    gap: 8px;
+    gap: 2px;
   }
 
   .honest-logo {
