@@ -72,6 +72,12 @@
   .the-details {
      align-items: flex-start;
   }
+  .the-honest-score,
+.the-honest-reviews {
+  margin: 0 !important;
+  padding: 0 !important;
+  line-height: 1 !important;
+}
 }
 
 
