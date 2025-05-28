@@ -1,41 +1,24 @@
-// embed-detailed.js
-
 document.addEventListener("DOMContentLoaded", () => {
   const scriptBase = document.currentScript?.src.split("/").slice(0, -1).join("/") + "/";
 
   const cssLink = document.createElement("link");
   cssLink.rel = "stylesheet";
-  cssLink.href = scriptBase + "the-honest-badge.css";
+  cssLink.href = scriptBase + "the-honest-badge-detailed.css";
   document.head.appendChild(cssLink);
 
-  document.querySelectorAll('[data-brand]').forEach(badge => {
+  document.querySelectorAll('[data-brand]').forEach(async badge => {
     const uuid = badge.dataset.brand;
     if (!uuid) return;
 
-    // CSS einbinden
-    const cssLink = document.createElement("link");
-    cssLink.rel = "stylesheet";
-    cssLink.href = scriptBase + "the-honest-badge-detailed.css";
-    document.head.appendChild(cssLink);
-
     try {
-      fetch(`https://thehonestexperience.com/api/1.1/wf/badge-data?widget_uuid=${uuid}`)
+      const res = await fetch(`https://thehonestexperience.com/api/1.1/wf/badge-data?widget_uuid=${uuid}`);
       const data = await res.json();
-      const { overall_score, review_count, category_scores = [], category_labels = [] } = data.response;
+      if (!data?.response) return;
 
-      // Mapping der Labels nach Order (frontendseitig gecached / injected)
-      const labelMap = {
-        1: "Customer Service",
-        2: "Quality",
-        3: "Value for Money",
-        4: "Durability",
-        5: "Ease of Use",
-        6: "Sustainability"
-        // Dynamisch ersetzbar je nach Branche (per Cache, Lookup oder Template)
-      };
+      const { score: overall_score, total_reviews, category_scores = [] } = data.response;
 
-      const rowsHTML = category_scores.map((entry) => {
-        const label = labelMap[entry.order] || `Category ${entry.order}`;
+      const rowsHTML = category_scores.map(entry => {
+        const label = entry.label || `Category ${entry.order}`;
         return `<div class="the-row"><span>${label}</span><span>${entry.score.toFixed(1)}</span></div>`;
       }).join("");
 
@@ -48,10 +31,12 @@ document.addEventListener("DOMContentLoaded", () => {
             <div class="the-overall-score">${overall_score.toFixed(1)}</div>
           </div>
 
-          <div class="the-breakdown">${rowsHTML}</div>
+          <div class="the-breakdown">
+            ${rowsHTML}
+          </div>
 
           <div class="the-footer">
-            <span>${review_count} verified review${review_count !== 1 ? 's' : ''}</span>
+            <span>${total_reviews} verified review${total_reviews !== 1 ? 's' : ''}</span>
             <img src="https://74b0fc046962dee287537fffacbddacd.cdn.bubble.io/f1745736971199x969105184116363800/Logo_Name_TheHonestExperience_Red_Red.png" alt="The Honest Experience" class="the-brand-logo">
           </div>
         </div>
@@ -62,4 +47,4 @@ document.addEventListener("DOMContentLoaded", () => {
       badge.innerText = "Widget not available";
     }
   });
-})();
+});
