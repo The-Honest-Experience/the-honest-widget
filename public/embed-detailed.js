@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
           <div class="the-footer">
             <span>${total_reviews} verified review${total_reviews !== 1 ? "s" : ""}</span>
             <img
-              src="https://74b0fc046962dee287537fffacbddacd.cdn.bubble.io/f1745736971199x969105184116363800/Logo_Name_TheHonestExperience_Red_Red.png"
+              src="https://74b0fc046962dee287537fffacbddacd.cdn.bubble.io/f1748427907388x140507377293159980/LOGO_long_Transparent.png?_gl=1*n2y6gs*_gcl_au*MjA2MTY0NDE0MS4xNzQ2NTM4Nzcy*_ga*MjA5NDY1MjE0My4xNzQ2NTM4NzM1*_ga_BFPVR2DEE2*czE3NDgyMzYzNjgkbzE3JGcxJHQxNzQ4NDI3ODA2JGo1NyRsMCRoMA.."
               alt="The Honest Experience"
               class="the-brand-logo"
             >
