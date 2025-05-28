@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
         <div class="the-honest-badge">
           <div class="the-score-section">
             <div class="the-score-icon">
-              <img src="https://thehonestexperience.bubbleapps.io/version-test/fileupload/score-icon-white.png" alt="score icon">
+              <img src="https://74b0fc046962dee287537fffacbddacd.cdn.bubble.io/f1744554362576x344039617658736400/Total-score-the-honest-experience.png" alt="score icon">
             </div>
             <div class="the-overall-score">${score.toFixed(1)}</div>
           </div>
