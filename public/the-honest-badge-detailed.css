@@ -1,21 +1,17 @@
-/* the-honest-badge-detailed.css */
-
 .the-honest-badge {
-  height: 250px; 
-  overflow: hidden;
   all: initial;
-  display: inline-flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 10px;
-  padding: 12px 16px;
-  background-color: #fff;
-  border: 1px solid #ddd;
+  box-sizing: border-box;
+  height: 260px; /* feste Höhe */
+  width: 260px;
+  background: white;
   border-radius: 12px;
+  border: 1px solid #ddd;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  padding: 16px;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
-  width: 300px;
-  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .the-score-section {
@@ -25,58 +21,40 @@
 }
 
 .the-score-icon img {
-  width: 28px;
-  height: 28px;
-  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
 }
 
 .the-overall-score {
   font-size: 36px;
-  font-weight: 700;
+  font-weight: bold; /* <– fetter Score */
   color: #111;
 }
 
 .the-breakdown {
+  font-size: 13px;
+  color: #222;
   display: flex;
   flex-direction: column;
   gap: 4px;
-  width: 100%;
+  margin-top: 4px;
 }
 
 .the-row {
   display: flex;
   justify-content: space-between;
-  font-size: 14px;
-  color: #111;
 }
 
 .the-footer {
   display: flex;
   flex-direction: column;
   align-items: center;
+  font-size: 12px;
+  margin-top: 6px;
   gap: 4px;
-  font-size: 13px;
-  color: #555;
 }
 
 .the-brand-logo {
-  height: 40px;
-  margin-top: 4px;
-}
-
-@media (max-width: 320px) {
-  .the-honest-badge {
-    max-width: 100%;
-    padding: 10px;
-    gap: 8px;
-  }
-  .the-overall-score {
-    font-size: 30px;
-  }
-  .the-row {
-    font-size: 13px;
-  }
-  .the-score-icon img {
-    width: 24px;
-    height: 24px;
+  height: 18px;
+  display: block;
 }
