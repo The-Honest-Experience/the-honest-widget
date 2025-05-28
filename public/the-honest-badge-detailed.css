@@ -1,63 +1,83 @@
-/* The Honest Experience – Detailed Badge Widget CSS */
+/* the-honest-badge-detailed.css */
 
-.the-honest-detailed-badge {
+.the-honest-badge {
   display: inline-flex;
   flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 12px 16px;
   background-color: #fff;
   border: 1px solid #ddd;
   border-radius: 12px;
-  padding: 20px 24px;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  width: 300px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
+  max-width: 220px;
+  font-size: 14px;
+}
+
+.the-score-section {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.the-score-icon img {
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+}
+
+.the-overall-score {
+  font-size: 36px;
+  font-weight: 700;
   color: #111;
 }
 
-.the-honest-top-row {
+.the-breakdown {
   display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 8px;
+  flex-direction: column;
+  gap: 4px;
+  width: 100%;
 }
 
-.the-honest-score-icon {
-  width: 24px;
-  height: 24px;
-  object-fit: contain;
-}
-
-.the-honest-total-score {
-  font-size: 42px;
-  font-weight: 700;
-  margin: 0;
-  padding: 0;
-}
-
-.the-honest-categories {
-  margin-top: 4px;
-  margin-bottom: 16px;
-}
-
-.the-honest-category {
+.the-row {
   display: flex;
   justify-content: space-between;
-  font-size: 15px;
-  margin: 2px 0;
-}
-
-.the-honest-bottom-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-top: auto;
-}
-
-.the-honest-review-count {
   font-size: 14px;
+  color: #111;
+}
+
+.the-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  font-size: 13px;
   color: #555;
 }
 
-.the-honest-logo {
-  height: 24px;
-  object-fit: contain;
+.the-brand-logo {
+  height: 20px;
+  margin-top: 4px;
+}
+
+@media (max-width: 320px) {
+  .the-honest-badge {
+    max-width: 100%;
+    padding: 10px;
+    gap: 8px;
+  }
+  .the-overall-score {
+    font-size: 30px;
+  }
+  .the-row {
+    font-size: 13px;
+  }
+  .the-score-icon img {
+    width: 24px;
+    height: 24px;
+  }
+  .the-brand-logo {
+    height: 18px;
+  }
 }
