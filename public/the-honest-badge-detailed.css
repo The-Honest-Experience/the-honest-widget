@@ -1,6 +1,9 @@
 /* the-honest-badge-detailed.css */
 
 .the-honest-badge {
+  height: 250px; 
+  overflow: hidden;
+  all: initial;
   display: inline-flex;
   flex-direction: column;
   align-items: flex-start;
