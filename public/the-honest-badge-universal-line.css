@@ -1,0 +1,46 @@
+.the-honest-badge-universal-line {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 8px 16px;
+  background-color: #FF403F;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  width: 100%;
+  max-width: 360px;
+  height: 70px;
+  box-sizing: border-box;
+}
+
+.universal-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.universal-icon {
+  width: 24px;
+  height: 24px;
+}
+
+.universal-text {
+  font-size: 14px;
+  color: #fff;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.universal-score {
+  font-size: 20px;
+  font-weight: bold;
+  color: #fff;
+  white-space: nowrap;
+}
+
+.universal-logo {
+  height: 40px;
+  width: auto;
+}
