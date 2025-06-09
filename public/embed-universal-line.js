@@ -7,12 +7,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
   document.querySelectorAll('[data-brand]').forEach(async badge => {
     const uuid = badge.dataset.brand;
-    const questionCode = badge.dataset.question; // <--- NEU: Fragecode
+    const questionSlug = badge.dataset.question_slug;
 
     if (!uuid || !questionCode) return;
 
     try {
-      const res = await fetch(`https://thehonestexperience.com/api/1.1/wf/badge-universal-one-line?widget_uuid=${uuid}&question_code=${questionCode}`);
+      const res = await fetch(`https://thehonestexperience.com/api/1.1/wf/badge-universal-one-line?widget_uuid=${uuid}&question_slug=${questionSlug}`);
       const data = await res.json();
       if (!data?.response) throw new Error("Missing data");
 
