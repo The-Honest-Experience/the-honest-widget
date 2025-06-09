@@ -1,4 +1,4 @@
-.the-honest-badge-universal-line {
+.the-honest-badge-universal-one-line {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -7,40 +7,43 @@
   background-color: #FF403F;
   border: 1px solid #ddd;
   border-radius: 8px;
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  width: 100%;
-  max-width: 360px;
-  height: 70px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
   box-sizing: border-box;
+  height: 70px;
+  width: 310px;
+  color: #fff;
 }
 
-.universal-left {
+.the-score-row {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
+  flex-grow: 1;
 }
 
-.universal-icon {
-  width: 24px;
-  height: 24px;
+.score-icon {
+  width: 26px;
+  height: 26px;
+  flex-shrink: 0;
 }
 
-.universal-text {
+.label {
   font-size: 14px;
-  color: #fff;
-  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 150px;
+}
+
+.score {
+  font-size: 24px;
+  font-weight: 700;
   white-space: nowrap;
 }
 
-.universal-score {
-  font-size: 20px;
-  font-weight: bold;
-  color: #fff;
-  white-space: nowrap;
-}
-
-.universal-logo {
-  height: 40px;
-  width: auto;
+.honest-logo {
+  height: 48px;
+  max-height: 48px;
+  flex-shrink: 0;
 }
