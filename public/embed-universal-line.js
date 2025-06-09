@@ -1,39 +1,36 @@
 document.addEventListener("DOMContentLoaded", () => {
   const scriptBase = document.currentScript?.src.split("/").slice(0, -1).join("/") + "/";
-
-  // Load the CSS dynamically (for flexibility)
   const cssLink = document.createElement("link");
   cssLink.rel = "stylesheet";
-  cssLink.href = scriptBase + "the-honest-badge-universal-line.css";
+  cssLink.href = scriptBase + "the-honest-badge-universal-one-line.css";
   document.head.appendChild(cssLink);
 
-  document.querySelectorAll('[data-widget="universal-line"]').forEach(badge => {
+  document.querySelectorAll('[data-brand]').forEach(async badge => {
     const uuid = badge.dataset.brand;
-    const questionKey = badge.dataset.question;
+    const questionCode = badge.dataset.question; // <--- NEU: Fragecode
 
-    if (!uuid || !questionKey) return;
+    if (!uuid || !questionCode) return;
 
-    // Fetch the rating for the given question + brand
-    fetch(`https://thehonestexperience.com/api/1.1/wf/badge-data-question?widget_uuid=${uuid}&question=${questionKey}`)
-      .then(res => res.json())
-      .then(data => {
-        if (!data?.response) return;
-        const { score, question_title, icon_url } = data.response;
+    try {
+      const res = await fetch(`https://thehonestexperience.com/api/1.1/wf/badge-universal-one-line?widget_uuid=${uuid}&question_code=${questionCode}`);
+      const data = await res.json();
+      if (!data?.response) throw new Error("Missing data");
 
-        badge.innerHTML = `
-          <div class="the-honest-badge-universal-line">
-            <div class="universal-left">
-              <img src="${icon_url}" class="universal-icon" alt="icon">
-              <div class="universal-text">${question_title}</div>
-            </div>
-            <div class="universal-score">${score.toFixed(1)}</div>
-            <img src="https://thehonestexperience.com/file/logo_white_the_honest_experience.png" class="universal-logo" alt="logo">
+      const { score_single_question, question_label, icon_url } = data.response;
+
+      badge.innerHTML = `
+        <div class="the-honest-badge-universal-one-line">
+          <div class="the-score-row">
+            <img src="${icon_url}" class="score-icon" alt="icon">
+            <span class="label">${question_label}</span>
+            <span class="score">${score_single_question.toFixed(1)}</span>
           </div>
-        `;
-      })
-      .catch(err => {
-        console.error("Badge load error", err);
-        badge.innerText = "Error loading badge.";
-      });
+          <img class="honest-logo" src="https://.../Logo_THE_weiss.png" alt="THE">
+        </div>
+      `;
+    } catch (err) {
+      console.error("Universal widget error", err);
+      badge.innerText = "Widget not available";
+    }
   });
 });
