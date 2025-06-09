@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const uuid = badge.dataset.brand;
     const questionSlug = badge.dataset.question_slug;
 
-    if (!uuid || !questionCode) return;
+    if (!uuid || !questionSlug) return;
 
     try {
       const res = await fetch(`https://thehonestexperience.com/api/1.1/wf/badge-universal-one-line?widget_uuid=${uuid}&question_slug=${questionSlug}`);
