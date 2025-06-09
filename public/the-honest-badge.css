@@ -1,6 +1,7 @@
 .the-honest-badge {
   display: inline-flex;
   align-items: center;
+  justify-content: center; 
   gap: 4px;
   padding: 8px 8px;
   background-color: #fff;
