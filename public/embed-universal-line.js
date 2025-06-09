@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <span class="label">${question_label}</span>
             <span class="score">${score_single_question.toFixed(1)}</span>
           </div>
-          <img class="honest-logo" src="https://.../Logo_THE_weiss.png" alt="THE">
+          <img class="honest-logo" src="https://74b0fc046962dee287537fffacbddacd.cdn.bubble.io/f1748152500612x296252883912272640/Logo_THE_weiss.png" alt="THE">
         </div>
       `;
     } catch (err) {
