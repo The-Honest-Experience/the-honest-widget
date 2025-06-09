@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!uuid || !questionSlug) return;
 
     try {
-      const res = await fetch(`https://thehonestexperience.com/api/1.1/wf/badge-universal-one-line?widget_uuid=${uuid}&question_slug=${questionSlug}`);
+      const res = await fetch(`https://thehonestexperience.com/api/1.1/wf/badge-universal-one-line?widget_uuid=${uuid}&question_slugs=${questionSlug}`);
       const data = await res.json();
       if (!data?.response) throw new Error("Missing data");
 
