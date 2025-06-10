@@ -19,13 +19,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const { score, total_reviews } = data.response;
 
-      badge.innerHTML = `
-        <div class="the-honest-badge">
-          <div class="the-score-block">
-            <div class="the-score-row">
-              <img 
-                src="https://74b0fc046962dee287537fffacbddacd.cdn.bubble.io/f1748152410553x159106384415167680/total-score-white-the-honest-experience.png" 
-                class="score-icon" 
+     badge.innerHTML = `
+  <div class="the-honest-badge-universal-one-line">
+    <div class="the-content-row">
+      <img src="${icon_url}" class="score-icon" alt="icon">
+      <span class="label">${question_label}</span>
+      <span class="score">${score_single_question.toFixed(1)}</span>
+    </div>
+    <img class="honest-logo" src="https://74b0fc046962dee287537fffacbddacd.cdn.bubble.io/f1748152500612x296252883912272640/Logo_THE_weiss.png" alt="THE">
+  </div>
+`;
+class="score-icon" 
                 alt="Score Icon">
               <div class="the-honest-score">${Number(score).toFixed(1)}</div>
             </div>
