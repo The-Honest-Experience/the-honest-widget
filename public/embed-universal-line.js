@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   document.querySelectorAll('[data-brand]').forEach(async badge => {
     const uuid = badge.dataset.brand;
-    const questionSlugs = badge.dataset.question_slugs;
+    const questionSlugs = badge.dataset.questionslugs;
 
     if (!uuid || !questionSlugs) return;
 
