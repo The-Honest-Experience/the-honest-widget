@@ -14,9 +14,15 @@ document.addEventListener("DOMContentLoaded", () => {
     try {
       const res = await fetch(`https://thehonestexperience.com/api/1.1/wf/badge-data?widget_uuid=${uuid}&question_slugs=${questionSlugs}`);
       const data = await res.json();
+      console.log("Badge data response:", data); // Debug-Ausgabe
+
       if (!data?.response) throw new Error("Missing data");
 
       const { score_single_question, question_label, icon_url } = data.response;
+
+      if (typeof score_single_question !== "number") {
+        throw new Error("score_single_question is missing or invalid");
+      }
 
       badge.innerHTML = `
         <div class="the-honest-badge-universal-one-line">
