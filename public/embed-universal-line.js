@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const { score_single_question, question_label, icon_url } = data.response;
 
       badge.innerHTML = `
-        <div class="the-honest-badge-universal-one-line">
+        <div class="the-honest-badge-universal-line">
           <div class="the-content-row">
             <img src="${icon_url}" class="score-icon" alt="icon">
             <span class="label">${question_label}</span>
