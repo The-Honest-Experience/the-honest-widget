@@ -8,11 +8,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   document.querySelectorAll('[data-brand]').forEach(badge => {
     const uuid = badge.dataset.brand;
-    const questionSlugs = badge.dataset.questionslugs;
+    const question_Slugs = badge.dataset.question_slugs;
 
-    if (!uuid || !questionSlugs) return;
+    if (!uuid || !question_Slugs) return;
 
-    fetch(`https://thehonestexperience.com/api/1.1/wf/badge-data?widget_uuid=${uuid}&question_slugs=${questionSlugs}`)
+    fetch(`https://thehonestexperience.com/api/1.1/wf/badge-data?widget_uuid=${uuid}&question_slugs=${question_Slugs}`)
       .then(res => res.json())
       .then(data => {
         if (!data?.response) return;
