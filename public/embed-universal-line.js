@@ -1,7 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
   const scriptBase = document.currentScript?.src.split("/").slice(0, -1).join("/") + "/";
-
-  // CSS laden
   const cssLink = document.createElement("link");
   cssLink.rel = "stylesheet";
   cssLink.href = scriptBase + "the-honest-badge-universal-line.css";
@@ -21,8 +19,8 @@ document.addEventListener("DOMContentLoaded", () => {
       const { score_single_question, question_label, icon_url } = data.response;
 
       badge.innerHTML = `
-        <div class="the-honest-badge-universal-line">
-          <div class="the-content-row">
+        <div class="the-honest-badge-universal-one-line">
+          <div class="the-score-row">
             <img src="${icon_url}" class="score-icon" alt="icon">
             <span class="label">${question_label}</span>
             <span class="score">${score_single_question.toFixed(1)}</span>
@@ -31,7 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
         </div>
       `;
     } catch (err) {
-      console.error("Badge API error", err);
+      console.error("Universal widget error", err);
       badge.innerText = "Widget not available";
     }
   });
