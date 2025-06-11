@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // CSS laden
   const cssLink = document.createElement("link");
   cssLink.rel = "stylesheet";
-  cssLink.href = scriptBase + "the-honest-badge-universal-one-line.css";
+  cssLink.href = scriptBase + "the-honest-badge-universal-line.css";
   document.head.appendChild(cssLink);
 
   document.querySelectorAll('[data-brand]').forEach(async badge => {
