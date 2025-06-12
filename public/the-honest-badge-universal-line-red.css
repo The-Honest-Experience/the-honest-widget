@@ -11,7 +11,7 @@
   box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
   box-sizing: border-box;
   height: 40px;
-  width: 310px;
+  width: 250px;
   color: #fff;
 }
 
@@ -44,7 +44,7 @@
 }
 
 .honest-logo {
-  height: 48px;
-  max-height: 48px;
+  height: 32px;
+  max-height: 32px;
   flex-shrink: 0;
 }
