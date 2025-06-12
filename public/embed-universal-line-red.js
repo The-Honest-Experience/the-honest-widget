@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   const scriptBase = document.currentScript?.src.split("/").slice(0, -1).join("/") + "/";
+
   const cssLink = document.createElement("link");
   cssLink.rel = "stylesheet";
   cssLink.href = scriptBase + "the-honest-badge-universal-line.css";
@@ -7,24 +8,34 @@ document.addEventListener("DOMContentLoaded", () => {
 
   document.querySelectorAll('[data-brand]').forEach(async badge => {
     const uuid = badge.dataset.brand;
-    const question_Slugs = badge.dataset.question_slugs;
-    if (!uuid || !question_Slugs) return;
+    const questionSlug = badge.dataset.question_slugs;
+
+    if (!uuid || !questionSlug) return;
 
     try {
-      const res = await fetch(`https://thehonestexperience.com/api/1.1/wf/badge-data?widget_uuid=${uuid}&question_slugs=${question_Slugs}`);
+      const res = await fetch(`https://thehonestexperience.com/api/1.1/wf/badge-data?widget_uuid=${uuid}&question_slugs=${questionSlug}`);
       const data = await res.json();
       if (!data?.response) throw new Error("Missing data");
 
-      const { score, category_labels, question_icons } = data.response;
-      console.log("RESPONSE", { score, category_labels, question_icons });
+      const {
+        question_slugs,
+        category_labels,
+        question_icons,
+        score_single_questions
+      } = data.response;
 
-      if (!score || !category_labels || !question_icons) throw new Error("Missing values");
+      const index = question_slugs.indexOf(questionSlug);
+      if (index === -1) throw new Error("Question slug not found");
+
+      const label = category_labels[index];
+      const iconUrl = question_icons[index];
+      const score = score_single_questions[index];
 
       badge.innerHTML = `
         <div class="the-honest-badge-universal-line">
           <div class="the-score-row">
-             <img src="${question_icons}" class="score-icon" alt="icon">
-            <span class="label">${category_labels}</span>
+            <img src="${iconUrl}" class="score-icon" alt="icon">
+            <span class="label">${label}</span>
             <span class="score">${score.toFixed(1)}</span>
           </div>
           <img class="honest-logo" src="https://74b0fc046962dee287537fffacbddacd.cdn.bubble.io/f1748152500612x296252883912272640/Logo_THE_weiss.png" alt="THE">
