@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
       .then(data => {
         if (!data?.response) return;
 
-        const { score_single_question, question_label, icon_url } = data.response;
+        const { score_single_question, question_label } = data.response;
 
         // Optional: Fallback-Schutz
         if (typeof score_single_question !== "number") {
@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
         badge.innerHTML = `
   <div class="the-honest-badge-universal-line">
     <div class="the-score-row">
-      <img src="${icon_url}" class="score-icon" alt="icon">
+      
       <span class="label">${question_label}</span>
       <span class="score">${score_single_question.toFixed(1)}</span>
     </div>
