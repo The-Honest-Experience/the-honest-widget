@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const { score, category_labels, question_icons } = data.response;
       console.log("RESPONSE", { score, category_labels, question_icons });
 
-      if (!score || !category_labels || !icon_url) throw new Error("Missing values");
+      if (!score || !category_labels || !question_icons) throw new Error("Missing values");
 
       badge.innerHTML = `
         <div class="the-honest-badge-universal-line">
