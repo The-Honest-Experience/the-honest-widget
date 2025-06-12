@@ -23,8 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
       badge.innerHTML = `
         <div class="the-honest-badge-universal-line">
           <div class="the-score-row">
-             <div class="score-icons">${iconsHTML}</div>
-
+             <img src="${question_icons}" class="score-icon" alt="icon">
             <span class="label">${category_labels}</span>
             <span class="score">${score.toFixed(1)}</span>
           </div>
