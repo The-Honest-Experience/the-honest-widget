@@ -3,14 +3,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const cssLink = document.createElement("link");
   cssLink.rel = "stylesheet";
-  cssLink.href = scriptBase + "the-honest-badge-universal-line.css";
+  cssLink.href = scriptBase + "the-honest-badge.css";
   document.head.appendChild(cssLink);
 
   document.querySelectorAll('[data-brand]').forEach(badge => {
     const uuid = badge.dataset.brand;
-    const question_Slugs = badge.dataset.question_slugs;
-
-    if (!uuid || !question_Slugs) return;
+    if (!uuid) return;
 
     fetch(`https://thehonestexperience.com/api/1.1/wf/badge-data?widget_uuid=${uuid}&question_slugs=${question_Slugs}`)
       .then(res => res.json())
