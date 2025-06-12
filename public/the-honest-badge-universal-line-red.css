@@ -11,7 +11,8 @@
   box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
   box-sizing: border-box;
   height: 40px;
-  width: max 250px;
+  width: fit-content;
+max-width: 100%;
   color: #fff;
 }
 
