@@ -15,8 +15,8 @@ document.addEventListener("DOMContentLoaded", () => {
       const data = await res.json();
       if (!data?.response) throw new Error("Missing data");
 
-      const { score_single_question, question_label, question_icons } = data.response;
-      console.log("RESPONSE", { score_single_question, question_label, question_icons });
+      const { score, category_labels, question_icons } = data.response;
+      console.log("RESPONSE", { score, category_labels, question_icons });
 
       if (!score_single_question || !question_label || !icon_url) throw new Error("Missing values");
 
@@ -24,8 +24,8 @@ document.addEventListener("DOMContentLoaded", () => {
         <div class="the-honest-badge-universal-line">
           <div class="the-score-row">
             <img src="${question_icons}" class="question_icons" alt="question_icons">
-            <span class="label">${question_label}</span>
-            <span class="score">${score_single_question.toFixed(1)}</span>
+            <span class="label">${category_labels}</span>
+            <span class="score">${score.toFixed(1)}</span>
           </div>
           <img class="honest-logo" src="https://74b0fc046962dee287537fffacbddacd.cdn.bubble.io/f1748152500612x296252883912272640/Logo_THE_weiss.png" alt="THE">
         </div>
