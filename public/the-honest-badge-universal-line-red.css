@@ -38,6 +38,7 @@
 .the-honest-badge-universal-line {
   display: flex;
   align-items: center;
+  width: fit-content;
   gap: 44px;
   padding: 8px 16px;
   background-color: #FF403F;
@@ -72,4 +73,20 @@
 .score {
   font-size: 16px;
   font-weight: 700;
+}
+
+
+.the-honest-badge-logo {
+  border-radius: 2px;             /* 👈 Ecken abrunden */
+  margin-right: 4px;              /* Abstand zum Label */
+}
+
+/* Label + Score-Block */
+.the-honest-badge-label {
+  margin-right: 16px;             /* Abstand zwischen Label und Score */
+}
+
+/* Optional: sicherstellen, dass es keine globale Begrenzung gibt */
+.the-honest-widget {
+  all: initial;                   /* Resetten, falls äußere Styles Einfluss nehmen */
 }
