@@ -23,7 +23,7 @@
 .the-logo-box {
   width: 48px;         /* vorher: 20px */
   height: 48px;        /* größerer Rahmen */
-  padding: 0 14px;     /* leicht angepasst für zentrierte Optik */
+  padding: 0 2px;     /* leicht angepasst für zentrierte Optik */
   margin-right: 8px; /* 👈 Abstand hier */
 }
 
