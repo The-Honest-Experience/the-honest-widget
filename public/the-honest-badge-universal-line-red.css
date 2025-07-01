@@ -76,6 +76,6 @@
 }
 
 .category-labels {
-  margin-right: 36px;             /* Abstand zwischen Label und Score */
+  margin-right: 36px !important;             /* Abstand zwischen Label und Score */
 }
 
