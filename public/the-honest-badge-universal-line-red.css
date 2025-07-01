@@ -40,12 +40,20 @@
   gap: 12px;
   padding: 8px 16px;
   background-color: #FF403F;
-  border-radius: 20px 8px 8px 20px; /* oder 0 20px 20px 0 für rechte Seite */
+  border-radius: 0 8px 8px 0; /* rechte Ecken rund */
   color: #fff;
   box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
   height: 40px;
 }
 
+.the-honest-badge-universal-line .honest-logo {
+  background-color: #FF403F;
+  border-radius: 2px 0 0 2px;  /* linke Ecken leicht rund */
+  width: 28px;
+  height: 28px;
+  padding: 4px;
+  object-fit: contain;
+}
 .score-icon-img {
   width: 16px;
   height: 16px;
