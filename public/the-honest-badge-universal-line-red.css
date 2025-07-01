@@ -75,4 +75,6 @@
   font-weight: 700;
 }
 
-
+.the-honest-badge-label {
+  margin-right: 16px;             /* Abstand zwischen Label und Score */
+}
