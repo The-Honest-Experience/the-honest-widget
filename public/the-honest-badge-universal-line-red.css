@@ -20,9 +20,15 @@
   border-radius: 8px 0 0 8px;
 }
 
+.the-logo-box {
+  width: 28px;         /* vorher: 20px */
+  height: 28px;        /* größerer Rahmen */
+  padding: 0 14px;     /* leicht angepasst für zentrierte Optik */
+}
+
 .the-logo-box img {
-  width: 100% !important;
-  height: 100% !important;
+  width: 20px;         /* vorher: 16px */
+  height: 20px;
   object-fit: contain;
   display: block;
 }
