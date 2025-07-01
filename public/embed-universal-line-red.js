@@ -32,15 +32,17 @@ document.addEventListener("DOMContentLoaded", () => {
       const score = category_scores[index];
 
       badge.innerHTML = `
-        <div class="the-honest-badge-universal-line">
-          <div class="the-score-row">
-            <img src="${iconUrl}" class="score-icon" alt="icon">
-            <span class="label">${label}</span>
-            <span class="score">${score.toFixed(1)}</span>
-          </div>
-          <img class="honest-logo" src="https://74b0fc046962dee287537fffacbddacd.cdn.bubble.io/f1748152500612x296252883912272640/Logo_THE_weiss.png" alt="THE">
-        </div>
-      `;
+  <div class="the-honest-badge-wrapper">
+    <div class="the-logo-box">
+      <img class="honest-logo" src="https://74b0fc046962dee287537fffacbddacd.cdn.bubble.io/f1748152500612x296252883912272640/Logo_THE_weiss.png" alt="THE Logo">
+    </div>
+    <div class="the-honest-badge-universal-line">
+      <img src="${iconUrl}" class="score-icon-img" alt="icon">
+      <span class="label">${label}</span>
+      <span class="score">${score.toFixed(1)}</span>
+    </div>
+  </div>
+`;
     } catch (err) {
       console.error("Universal widget error", err);
       badge.innerText = "Widget not available";
