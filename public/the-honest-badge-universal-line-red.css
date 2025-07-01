@@ -21,14 +21,14 @@
 }
 
 .the-logo-box {
-  width: 28px;         /* vorher: 20px */
-  height: 28px;        /* größerer Rahmen */
+  width: 48px;         /* vorher: 20px */
+  height: 48px;        /* größerer Rahmen */
   padding: 0 14px;     /* leicht angepasst für zentrierte Optik */
 }
 
 .the-logo-box img {
-  width: 20px;         /* vorher: 16px */
-  height: 20px;
+  width: 40px;         /* vorher: 16px */
+  height: 40px;
   object-fit: contain;
   display: block;
 }
