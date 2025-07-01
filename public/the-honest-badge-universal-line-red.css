@@ -23,7 +23,7 @@
 .the-logo-box {
   width: 48px;         /* vorher: 20px */
   height: 48px;        /* größerer Rahmen */
-  padding: 0 2px;     /* leicht angepasst für zentrierte Optik */
+  padding: 4px 4px;     /* leicht angepasst für zentrierte Optik */
   margin-right: 8px; /* 👈 Abstand hier */
 }
 
@@ -76,17 +76,3 @@
 }
 
 
-.the-honest-badge-logo {
-  border-radius: 2px;             /* 👈 Ecken abrunden */
-  margin-right: 4px;              /* Abstand zum Label */
-}
-
-/* Label + Score-Block */
-.the-honest-badge-label {
-  margin-right: 16px;             /* Abstand zwischen Label und Score */
-}
-
-/* Optional: sicherstellen, dass es keine globale Begrenzung gibt */
-.the-honest-widget {
-  all: initial;                   /* Resetten, falls äußere Styles Einfluss nehmen */
-}
