@@ -21,15 +21,15 @@
 }
 
 .the-logo-box {
-  width: 48px;         /* vorher: 20px */
-  height: 48px;        /* größerer Rahmen */
+  width: 40px;         /* vorher: 20px */
+  height: 40px;        /* größerer Rahmen */
   padding: 4px 4px;     /* leicht angepasst für zentrierte Optik */
   margin-right: 8px; /* 👈 Abstand hier */
 }
 
 .the-logo-box img {
-  width: 40px;         /* vorher: 16px */
-  height: 40px;
+  width: 36px;         /* vorher: 16px */
+  height: 36px;
   object-fit: contain;
   display: block;
 }
@@ -40,7 +40,7 @@
   align-items: center;
   width: fit-content;
   gap: 8px;
-  padding: 8px 16px;
+  padding: 8px 8px;
   background-color: #FF403F;
   border-radius: 8px 8px 8px 8px; /* rechte Ecken rund */
   color: #fff;
