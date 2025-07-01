@@ -12,16 +12,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 10px;
-  width: 10px;
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  flex-shrink: 0;
   flex-shrink: 0;
   border-radius: 8px 0 0 8px;
 }
 
-.the-logo {
-  height: 16px;
-  max-height: 16px;
-}
 
 .the-honest-badge-universal-line {
   display: flex;
