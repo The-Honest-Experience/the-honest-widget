@@ -17,7 +17,7 @@
   object-fit: contain;
   flex-shrink: 0;
   flex-shrink: 0;
-  border-radius: 8px 0 0 8px;
+  border-radius: 2px 2px 2px 2px;
 }
 
 .the-logo-box {
@@ -41,7 +41,7 @@
   gap: 44px;
   padding: 8px 16px;
   background-color: #FF403F;
-  border-radius: 0 8px 8px 0; /* rechte Ecken rund */
+  border-radius: 8px 8px 8px 8px; /* rechte Ecken rund */
   color: #fff;
   box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
   height: 40px;
