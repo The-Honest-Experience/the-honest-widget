@@ -23,7 +23,7 @@
 .the-logo-box {
   width: 40px;         /* vorher: 20px */
   height: 40px;        /* größerer Rahmen */
-  padding: 4px 4px;     /* leicht angepasst für zentrierte Optik */
+  padding: 0px 0px;     /* leicht angepasst für zentrierte Optik */
   margin-right: 8px; /* 👈 Abstand hier */
 }
 
@@ -45,7 +45,7 @@
   border-radius: 8px 8px 8px 8px; /* rechte Ecken rund */
   color: #fff;
   box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
-  height: 40px;
+  height: 36px;
 }
 
 .the-honest-badge-universal-line .honest-logo {
