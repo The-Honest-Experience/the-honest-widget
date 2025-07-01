@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
     <div class="the-logo-box">
       <img class="honest-logo" src="https://74b0fc046962dee287537fffacbddacd.cdn.bubble.io/f1748152500612x296252883912272640/Logo_THE_weiss.png" alt="THE Logo">
     </div>
-    <div class="the-honest-badge-universal-line">
+    <div class="the-honest-badge-universal-line-red">
       <img src="${iconUrl}" class="score-icon-img" alt="icon">
       <span class="label">${label}</span>
       <span class="score">${score.toFixed(1)}</span>
