@@ -41,7 +41,7 @@
   width: fit-content;
   gap: 8px;
   padding: 1px 12px;
-  background-color: #ffffff;
+  background-color: #FF403F1A;
   border-radius: 8px 8px 8px 8px; /* rechte Ecken rund */
   color: #fff;
   box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
@@ -59,7 +59,7 @@
 .score-icon-img {
   width: 16px;
   height: 16px;
-  filter: brightness(0) invert(1);
+  filter: brightness(0);
 }
 
 .label {
@@ -67,6 +67,7 @@
   white-space: nowrap;
   max-width: 150px;
   overflow: hidden;
+  color: #000000 !important;  /* schwarz */
   text-overflow: ellipsis;
     margin-right: 16px; /* 👈 hier ergänzen */
 
@@ -75,4 +76,5 @@
 .score {
   font-size: 16px;
   font-weight: 700;
+  color: #000000 !important;  /* schwarz */
 }
