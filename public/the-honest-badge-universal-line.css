@@ -1,49 +1,78 @@
+.the-honest-badge-wrapper {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  max-width: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+.the-logo-box {
+  background-color: #FF403F;
+  padding: 0 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  flex-shrink: 0;
+  flex-shrink: 0;
+  border-radius: 2px 2px 2px 2px;
+}
+
+.the-logo-box {
+  width: 36px;         /* vorher: 20px */
+  height: 36px;        /* größerer Rahmen */
+  padding: 0px 0px;     /* leicht angepasst für zentrierte Optik */
+  margin-right: 8px; /* 👈 Abstand hier */
+}
+
+.the-logo-box img {
+  width: 36px;         /* vorher: 16px */
+  height: 36px;
+  object-fit: contain;
+  display: block;
+}
+
+
 .the-honest-badge-universal-line {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  padding: 8px 16px;
+  width: fit-content;
+  gap: 8px;
+  padding: 1px 12px;
   background-color: #FF403F;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
-  box-sizing: border-box;
-  height: 70px;
-  width: 310px;
+  border-radius: 8px 8px 8px 8px; /* rechte Ecken rund */
   color: #fff;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
+  height: 36px;
 }
 
-.the-score-row {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  flex-grow: 1;
+.the-honest-badge-universal-line .honest-logo {
+  background-color: #FF403F;
+  border-radius: 2px 0 0 2px;  /* linke Ecken leicht rund */
+  width: 28px;
+  height: 28px;
+  padding: 4px;
+  object-fit: contain;
 }
-
-.score-icon {
-  width: 26px;
-  height: 26px;
-  flex-shrink: 0;
+.score-icon-img {
+  width: 16px;
+  height: 16px;
+  filter: brightness(0) invert(1);
 }
 
 .label {
   font-size: 14px;
   white-space: nowrap;
+  max-width: 150px;
   overflow: hidden;
   text-overflow: ellipsis;
-  max-width: 150px;
+    margin-right: 16px; /* 👈 hier ergänzen */
+
 }
 
 .score {
-  font-size: 24px;
+  font-size: 16px;
   font-weight: 700;
-  white-space: nowrap;
-}
-
-.honest-logo {
-  height: 48px;
-  max-height: 48px;
-  flex-shrink: 0;
 }
