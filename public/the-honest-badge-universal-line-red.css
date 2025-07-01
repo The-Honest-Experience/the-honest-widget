@@ -68,7 +68,7 @@
   max-width: 150px;
   overflow: hidden;
   text-overflow: ellipsis;
-    margin-right: 32px; /* 👈 hier ergänzen */
+    margin-right: 16px; /* 👈 hier ergänzen */
 
 }
 
