@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
   cssLink.href = scriptBase + "the-honest-badge-red.css";
   document.head.appendChild(cssLink);
 
-  document.querySelectorAll('[data-brand]').forEach(badge => {
+  document.querySelectorAll('.the-honest-widget-red[data-brand]').forEach(badge => {
     const uuid = badge.dataset.brand;
     if (!uuid) return;
 
