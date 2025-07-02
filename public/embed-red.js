@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const cssLink = document.createElement("link");
   cssLink.rel = "stylesheet";
-  cssLink.href = scriptBase + "the-honest-badge.css";
+  cssLink.href = scriptBase + "the-honest-badge-red.css";
   document.head.appendChild(cssLink);
 
   document.querySelectorAll('[data-brand]').forEach(badge => {
@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const { score, total_reviews } = data.response;
 
         badge.innerHTML = `
-  <div class="the-honest-badge">
+  <div class="the-honest-badge-red">
     <div class="the-score-block">
       <div class="the-score-row">
         <img src="https://74b0fc046962dee287537fffacbddacd.cdn.bubble.io/f1748152410553x159106384415167680/total-score-white-the-honest-experience.png?_gl=1*2nk9wg*_gcl_au*MjA2MTY0NDE0MS4xNzQ2NTM4Nzcy*_ga*MjA5NDY1MjE0My4xNzQ2NTM4NzM1*_ga_BFPVR2DEE2*czE3NDgxNDgzMDAkbzE2JGcxJHQxNzQ4MTUyNzEzJGo2MCRsMCRoMCRkamRqak14OVhkZmRVdjNYSVdlXzk2a2N5RmgtSm1IN1hkdw.." class="score-icon" alt="Score Icon">
