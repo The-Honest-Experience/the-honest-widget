@@ -37,6 +37,8 @@
 
 .the-honest-badge-universal-line {
   display: flex;
+  max-width: 100%;
+  flex-wrap: nowrap; /* verhindert Umbruch */
   align-items: center;
   width: fit-content;
   gap: 8px;
@@ -65,7 +67,7 @@
 .label {
   font-size: 14px;
   white-space: nowrap;
-  max-width: 200px;
+  max-width: 150px;
   overflow: hidden;
   text-overflow: ellipsis;
     margin-right: 16px; /* 👈 hier ergänzen */
