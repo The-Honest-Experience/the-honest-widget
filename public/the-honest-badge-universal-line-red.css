@@ -67,7 +67,7 @@
 .label {
   font-size: 14px;
   white-space: nowrap;
-  max-width: 150px;
+  max-width: 200px;
   overflow: hidden;
   text-overflow: ellipsis;
     margin-right: 16px; /* 👈 hier ergänzen */
