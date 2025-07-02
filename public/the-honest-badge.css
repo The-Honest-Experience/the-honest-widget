@@ -1,85 +1,68 @@
+/* 🛡 THE Badge – robust gegen externe Styles */
+
 .the-honest-badge {
+  all: initial;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   display: inline-flex;
   align-items: center;
-  justify-content: center; 
-  gap: 4px;
-  padding: 8px 8px;
+  justify-content: space-between;
   background-color: #fff;
   border: 1px solid #ddd;
   border-radius: 8px;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  padding: 10px 12px;
   box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
-  height: 70px; /* feste Höhe */
-  width: 175px;
-  font-size: 14px;
+  min-width: 180px;
+  height: 70px;
+  gap: 16px; /* 👉 Abstand zwischen Score und Logo */
+  box-sizing: border-box;
 }
 
-.the-honest-score {
-  font-size: 36px;
-  font-weight: 700;
-  margin-left: 4px;
-  color: #111;
+.the-honest-badge * {
+  all: unset;
+  font-family: inherit;
+  box-sizing: border-box;
 }
 
-.the-honest-reviews {
-  font-size: 13px;
-  color: #555;
-}
-
+/* Score-Bereich links */
 .the-score-block {
   display: flex;
   flex-direction: column;
-  gap: 0;
-  line-height: 1;
+  justify-content: center;
+  gap: 4px;
 }
 
 .the-score-row {
   display: flex;
   align-items: center;
-  gap: 0;
+  gap: 6px;
+  font-size: 28px;
+  font-weight: 700;
+  color: #111;
 }
 
+.the-honest-score {
+  font-size: inherit;
+  font-weight: inherit;
+  color: inherit;
+}
+
+.the-honest-reviews {
+  font-size: 13px;
+  color: #555;
+  line-height: 1;
+}
+
+/* Icon */
 .score-icon {
-  width: 26px;
-  height: 26px;
+  width: 22px;
+  height: 22px;
   flex-shrink: 0;
 }
 
-
+/* Logo rechts */
 .honest-logo {
+  height: 48px;
   width: auto;
-  height: 50px;
-  max-height: 50px;
-  margin-left: 4px;
   flex-shrink: 0;
   display: block;
-}
-
-.the-details {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-}
-
-@media (max-width: 320px) {
-  .the-honest-badge {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 2px;
-  }
-
-  .honest-logo {
-    margin-left: 4px;
-    align-self: flex-end;
-  }
-
-  .the-details {
-     align-items: flex-start;
-  }
-  .the-honest-score,
-.the-honest-reviews {
-  margin: 0 !important;
-  padding: 0 !important;
-  line-height: 1 !important;
-}
 }
