@@ -32,7 +32,8 @@ document.addEventListener("DOMContentLoaded", () => {
       const score = category_scores[index];
 
       badge.innerHTML = `
-  <div class="the-honest-badge-universal-line">
+ <div class="the-honest-badge-universal-line">
+    <div class="the-honest-badge-wrapper">
     <div class="the-logo-box">
       <img class="honest-logo" src="https://74b0fc046962dee287537fffacbddacd.cdn.bubble.io/f1748152500612x296252883912272640/Logo_THE_weiss.png" alt="THE Logo">
     </div>
