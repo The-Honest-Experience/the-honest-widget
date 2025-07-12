@@ -1,26 +1,3 @@
-(function forceInlineStyle() {
-  const style = document.createElement("style");
-  style.innerHTML = `
-    .the-honest-badge-wrapper {
-      border: 4px dashed red !important;
-    }
-
-    .the-honest-badge-wrapper .score {
-      color: darkred !important;
-      font-weight: bold;
-    }
-  `;
-  document.head.appendChild(style);
-})();
-
-
-console.log("✅ embed-universal-line.js wurde geladen");
-
-document.addEventListener("DOMContentLoaded", () => {
-  const widgetList = document.querySelectorAll('.the-honest-widget-universal-line');
-  console.log("👀 Gefundene Widgets:", widgetList);
-
-
 document.addEventListener("DOMContentLoaded", () => {
   const scriptBase = document.currentScript?.src.split("/").slice(0, -1).join("/") + "/";
 
@@ -29,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
   cssLink.href = scriptBase + "the-honest-badge-universal-line.css";
   document.head.appendChild(cssLink);
 
-  document.querySelectorAll('.the-honest-widget-universal-line').forEach(async badge => {
+  document.querySelectorAll('[data-brand]').forEach(async badge => {
     const uuid = badge.dataset.brand;
     const questionSlug = badge.dataset.question_slugs;
 
@@ -55,8 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const score = category_scores[index];
 
       badge.innerHTML = `
- <div class="the-honest-badge-universal-line">
-    <div class="the-honest-badge-wrapper">
+  <div class="the-honest-badge-wrapper">
     <div class="the-logo-box">
       <img class="honest-logo" src="https://74b0fc046962dee287537fffacbddacd.cdn.bubble.io/f1748152500612x296252883912272640/Logo_THE_weiss.png" alt="THE Logo">
     </div>
@@ -72,5 +48,4 @@ document.addEventListener("DOMContentLoaded", () => {
       badge.innerText = "Widget not available";
     }
   });
-});
 });
