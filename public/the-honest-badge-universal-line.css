@@ -1,4 +1,4 @@
-.the-honest-badge-wrapper {
+.the-honest-badge-universal-line .the-honest-badge-wrapper {
   display: flex;
   align-items: center;
   width: fit-content;
@@ -6,7 +6,7 @@
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 
-.the-logo-box {
+.the-honest-badge-universal-line .the-logo-box {
   background-color: #FF403F;
   padding: 0 12px;
   display: flex;
@@ -20,14 +20,14 @@
   border-radius: 2px 2px 2px 2px;
 }
 
-.the-logo-box {
+.the-honest-badge-universal-line .the-logo-box {
   width: 36px;         /* vorher: 20px */
   height: 36px;        /* größerer Rahmen */
   padding: 0px 0px;     /* leicht angepasst für zentrierte Optik */
   margin-right: 8px; /* 👈 Abstand hier */
 }
 
-.the-logo-box img {
+.the-honest-badge-universal-line .the-logo-box img {
   width: 36px;         /* vorher: 16px */
   height: 36px;
   object-fit: contain;
@@ -57,13 +57,13 @@
   padding: 4px;
   object-fit: contain;
 }
-.score-icon-img {
+.the-honest-badge-universal-line .score-icon-img {
   width: 16px;
   height: 16px;
   filter: brightness(0);
 }
 
-.label {
+.the-honest-badge-universal-line .label {
   font-size: 14px;
   white-space: nowrap;
   max-width: 150px;
@@ -74,7 +74,7 @@
 
 }
 
-.score {
+.the-honest-badge-universal-line .score {
   font-size: 16px;
   font-weight: 700;
   color: #000000 !important;  /* schwarz */
