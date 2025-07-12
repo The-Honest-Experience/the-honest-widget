@@ -1,3 +1,10 @@
+console.log("✅ embed-universal-line.js wurde geladen");
+
+document.addEventListener("DOMContentLoaded", () => {
+  const widgetList = document.querySelectorAll('.the-honest-widget-universal-line');
+  console.log("👀 Gefundene Widgets:", widgetList);
+
+
 document.addEventListener("DOMContentLoaded", () => {
   const scriptBase = document.currentScript?.src.split("/").slice(0, -1).join("/") + "/";
 
@@ -49,4 +56,5 @@ document.addEventListener("DOMContentLoaded", () => {
       badge.innerText = "Widget not available";
     }
   });
+});
 });
