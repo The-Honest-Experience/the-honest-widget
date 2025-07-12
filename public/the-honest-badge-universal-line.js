@@ -14,7 +14,7 @@
   <!-- Live preview (optional) -->
   <div style="margin-top: 48px;">
     <h2 style="font-size: 22px; font-weight: 600; margin-bottom: 16px;">Live preview:</h2>
-    <div class="the-honest-widget-universal" data-brand="YOUR_UUID_HERE"></div>
+    <div class="the-honest-widget-universal-line" data-brand="YOUR_UUID_HERE"></div>
   </div>
 
   <p style="margin-top: 40px; font-size: 14px; color: #666;">
