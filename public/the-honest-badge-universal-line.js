@@ -8,13 +8,13 @@
   <!-- Code block -->
   <div style="background-color: #f7f7f7; border: 1px solid #ddd; padding: 20px; border-radius: 8px; font-family: monospace; font-size: 14px; position: relative;">
     <button onclick="navigator.clipboard.writeText(document.getElementById('widget-code').innerText)" style="position: absolute; top: 12px; right: 12px; background-color: #ef443d; color: white; border: none; border-radius: 4px; padding: 4px 10px; font-size: 12px; cursor: pointer;">Copy</button>
-    <pre id="widget-code"><code>&lt;script src="https://the-honest-widget.pages.dev/embed.js" data-widget-id="YOUR_UUID_HERE" defer&gt;&lt;/script&gt;</code></pre>
+    <pre id="widget-code"><code>&lt;script src="https://the-honest-widget.pages.dev/embed-universal-line.js" data-widget-id="YOUR_UUID_HERE" defer&gt;&lt;/script&gt;</code></pre>
   </div>
 
   <!-- Live preview (optional) -->
   <div style="margin-top: 48px;">
     <h2 style="font-size: 22px; font-weight: 600; margin-bottom: 16px;">Live preview:</h2>
-    <div class="the-honest-widget" data-brand="YOUR_UUID_HERE"></div>
+    <div class="the-honest-widget-universal" data-brand="YOUR_UUID_HERE"></div>
   </div>
 
   <p style="margin-top: 40px; font-size: 14px; color: #666;">
