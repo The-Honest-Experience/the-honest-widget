@@ -1,3 +1,19 @@
+(function forceInlineStyle() {
+  const style = document.createElement("style");
+  style.innerHTML = `
+    .the-honest-badge-wrapper {
+      border: 4px dashed red !important;
+    }
+
+    .the-honest-badge-wrapper .score {
+      color: darkred !important;
+      font-weight: bold;
+    }
+  `;
+  document.head.appendChild(style);
+})();
+
+
 console.log("✅ embed-universal-line.js wurde geladen");
 
 document.addEventListener("DOMContentLoaded", () => {
